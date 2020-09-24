@@ -1,0 +1,28 @@
+# Add below command to crontab by "sudo crontab -e"
+# 
+# crontab -u 設定的cron服務
+# crontab -l 列出cron服務的詳細內容
+# crontab -r 刪除cron服務
+# crontab -e 編輯cron服務
+#
+# 每天早上12點 30 分執行/tmp/test.sh。
+# 30 12 * * *   /tmp/test.sh
+#
+# 每個月1號1點至3點30分
+# 30 1-3 1 * *   /tmp/test.sh
+#
+# https://stackoverflow.max-everyday.com/2017/08/centos-crontab/
+# https://tecadmin.net/crontab-in-linux-with-20-examples-of-cron-schedule/
+#
+# Autoreboot example:
+# https://kevinleeblog.github.io/project1/2020/07/02/auto-reboot-for-linux/
+
+# / mean every 2 minutes at below example
+
+
+# depend on your shell script path
+
+SCRIPT_PATH=`pwd`
+*/2 * * * * bash $SCRIPT_PATH/autoRebootForCron.sh
+
+
