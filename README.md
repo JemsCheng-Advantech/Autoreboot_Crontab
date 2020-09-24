@@ -2,7 +2,7 @@
 
 Steps,
 # to install file in this script path
-1. sudo ./install 
+1. sudo ./install.sh
 
 # add command that will auto execute by crontab
 2. sudo crontab -e # add following link to crontab. For reboot, it need to run with "$ sudo crontab -e"
