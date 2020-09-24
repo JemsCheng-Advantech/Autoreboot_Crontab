@@ -1,6 +1,6 @@
 #!/bin/bash
 
-##SCRIPT_PATH=`pwd`
+SCRIPT_PATH=`pwd`
 
 if [ -z $1]
 then
@@ -10,15 +10,20 @@ else
 fi
 
 ## Main Function
-[ -e /home/u1804/Autoreboot/enableRebootTime ] && {
-	echo $time > /home/u1804/Autoreboot/TotalRebootTimes
-	declare -i enableRebootTime=$(cat /home/u1804/Autoreboot/enableRebootTime)
-	echo "$[ $enableRebootTime+1 ]" > /home/u1804/Autoreboot/enableRebootTime
-	echo $enableRebootTime > /home/u1804/Autoreboot/CurrentRebootTimes
+
+## CurrentRebootTimes: how many times the Autoreboot has executed
+## TotalRebootTimes: The setting you set for Autoreboot
+## enableRebootTimes: On/Off to start the below script
+
+[ -e ${SCRIPT_PATH}/enableRebootTime ] && {
+	echo $time > ${SCRIPT_PATH}/TotalRebootTimes
+	declare -i enableRebootTime=$(cat ${SCRIPT_PATH}/enableRebootTime)
+	echo "$[ $enableRebootTime+1 ]" > ${SCRIPT_PATH}/enableRebootTime
+	echo $enableRebootTime > ${SCRIPT_PATH}/CurrentRebootTimes
 	/sbin/reboot
 	if [ $enableRebootTime -eq $time ]
 	then
-		rm /home/u1804/Autoreboot/enableRebootTime
+		rm ${SCRIPT_PATH}/enableRebootTime
 	fi
 	
 }

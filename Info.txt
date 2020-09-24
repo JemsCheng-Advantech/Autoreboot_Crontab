@@ -17,12 +17,27 @@
 # Autoreboot example:
 # https://kevinleeblog.github.io/project1/2020/07/02/auto-reboot-for-linux/
 
-# / mean every 2 minutes at below example
+# write out current crontab
+# crontab -l > mycron
+# echo new cron into cron file
+# echo "00 09 * * 1-5 echo hello" >> mycron
+# install new cron file
+# crontab mycron
+# rm mycron
 
+# / mean every 2 minutes at below example
+# * * * * * "command to be executed"
+# - - - - -
+# | | | | |
+# | | | | ----- Day of week (0 - 7) (Sunday=0 or 7)
+# | | | ------- Month (1 - 12)
+# | | --------- Day of month (1 - 31)
+# | ----------- Hour (0 - 23)
+# ------------- Minute (0 - 59)
 
 # depend on your shell script path
 
 SCRIPT_PATH=`pwd`
-*/2 * * * * bash $SCRIPT_PATH/autoRebootForCron.sh
+*/2 * * * * cd ${SCRIPT+PATH} && ./autoRebootForCron.sh # reboot every 2 minutes
 
 

@@ -1,0 +1,1 @@
+*/2 * * * * cd /home/u1804/Autoreboot_Crontab && ./autoRebootForCron.sh
