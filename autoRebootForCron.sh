@@ -4,8 +4,10 @@ SCRIPT_PATH=`pwd`
 
 if [ -z $1]
 then
+	## set the reboot times here
 	declare -i time=20
 else
+	## input the reboot time by ./autoRebootForCron.sh $time
 	declare -i time=$1
 fi
 
