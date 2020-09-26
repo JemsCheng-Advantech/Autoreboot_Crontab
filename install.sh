@@ -14,7 +14,6 @@ rm -rf enableRebootTime
 SCRIPT_PATH=`pwd`
 echo The script path is $SCRIPT_PATH
 
-
 touch enableRebootTime
 
 # Create a crontab job using bash without the interactive editor
@@ -33,9 +32,10 @@ sudo crontab -l
 # echo "# Please add command to crontab by...\n"
 # echo "$ sudo crontab -e\n"
 # echo "*/2 * * * * cd ${SCRIPT_PATH} && ./autoRebootForCron.sh #For reboot every 2 minutes...\n"
+echo "### Modify the reboot time Var declare -i time=20 in autoRebootForCron.sh###"
 echo "### Execute command below to set Autoreboot times and start reboot...###\n"
-echo "$ sudo ./autoRebootForCron.sh 20\n"
-echo "# or...\n"
+echo "$ sudo ./autoRebootForCron.sh\n"
+
 echo "$ service cron start\n"
 echo "# Stop test by...\n"
 echo "$ service cron stop\n"
